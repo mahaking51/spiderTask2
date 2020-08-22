@@ -11,12 +11,12 @@
 </head>
 <body>
 <!-- user name input section -->
-<section id='userdetails'>
+<section id='userdetails' style="display: none;">
     <div class="container" id='introbox'>
         <img src="https://pixabay.com/get/53e3d74b4855a414f1dc8460da2932771d3fd6e55b5571_640.png" alt="" height='150' width='150'>
         <h1 id='hi'>Hi, Welcome to TestPad</h1>
         <form action="">
-        <input type="text" class="form-control" placeholder="Name" required>
+        <input type="text" class="form-control" placeholder="Name" id='name' required>
         <h3>Choose difficulty</h3>
         <!-- <input type="text" class='form-control'> -->
         <select name="" id="" class="form-control">
@@ -24,8 +24,26 @@
             <option value="medium">Moderate</option>
             <option value="hard">Hard</option>
         </select>
-        <button class="btn btn-warning">Start</button>
+        <button class="btn btn-warning" id='submitbut'>Start</button>
     </form>
+    </div>
+</section>
+<section id=instruction>
+    <div class='container' id='instBox'>
+        <h1>Instructions</h1>
+        <ul>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <input type="checkbox" name="" id="terms">
+            <p id='conditions'>I accept all terms and conditions of TestPad and wont indulge in any form of malpractices</p>
+        </ul>
+        <button class="btn btn-warning" disabled id='startbut'>Start Test</button>
     </div>
 </section>
 </body>
