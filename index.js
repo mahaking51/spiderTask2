@@ -2,6 +2,7 @@ document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
     document.getElementById('userdetails').style.display='none'
+    document.getElementById('instruction').style.display='block';
 }
 else{
     alert('Fill valid name')
@@ -18,4 +19,8 @@ document.getElementById('terms').addEventListener('change',function(){
         document.getElementById('startbut').disabled=true;
   
     }
+})
+
+document.getElementById('startbut').addEventListener('click',function(){
+    document.getElementById('instruction').style.display='none';
 })

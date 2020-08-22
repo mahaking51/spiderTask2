@@ -5,7 +5,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/4298b3fd63.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Spider Task Title</title>
 </head>
@@ -28,7 +30,7 @@
     </form>
     </div>
 </section>
-<section id=instruction>
+<section id=instruction style="display: none;">
     <div class='container' id='instBox'>
         <h1>Instructions</h1>
         <ul>
@@ -45,6 +47,54 @@
         </ul>
         <button class="btn btn-warning" disabled id='startbut'>Start Test</button>
     </div>
+</section>
+<section id='test'>
+        <div class="container" id='question'>
+            <h4 id='timer'>Timer</h4>
+            <h1 id='qno'>Question 1</h1>
+            <div id='qs'>
+                <h5 id='ques'>Which of the following statement is/are correct about Favipiravir?</h5>
+                <ul class="list-group" id='options'>
+                    <li class="list-group-item" id='op1'>Cras justo odio</li>
+                    <li class="list-group-item" id='op2'>Dapibus ac facilisis in</li>
+                    <li class="list-group-item" id='op3'>Morbi leo risus</li>
+                    <li class="list-group-item" id='op4'>Porta ac consectetur ac</li>
+                  </ul>
+            <button class='btn' id='prevq'> <i class="fas fa-angle-double-left"></i>   Prev</button>
+            <button class="btn" id='nextq'>Next   <i class="fas fa-angle-double-right"></i> </button>
+            </div>
+            <button class='btn btn-warning' id='review'>Mark for review</button>
+        </div>
+        <div class="container" id='navbar'>
+            <h3>Question grid</h3>
+            <div class="grid-container">
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+                <div class="grid-item">7</div>
+                <div class="grid-item">8</div>
+                <div class="grid-item">10</div>
+                <div class="grid-item">11</div>
+                <div class="grid-item">12</div>
+                <div class="grid-item">13</div>
+                <div class="grid-item">14</div>
+                <div class="grid-item">15</div>
+                <div class="grid-item">16</div>
+                <div class="grid-item">17</div>
+                <div class="grid-item">18</div>
+                <div class="grid-item">19</div>
+                <div class="grid-item">20</div>
+              </div>
+            <h5 id='correct' class="det">Correct:</h5>
+            <h5 id='wrong' class="det">Wrong:</h5>
+            <h5 id='ans' class="det">Answered:</h5>
+            <h5 id='unans' class="det">Unanswered:</h5>
+            <h5 id='mark' class="det">Marked for Review:</h5>
+            <button class="btn btn-success">Submit Quiz</button>
+        </div>
 </section>
 </body>
 <script src="index.js"></script>
