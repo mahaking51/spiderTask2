@@ -166,7 +166,7 @@ h5{
   padding-left:1.5rem;
 }
 .list-group-item:hover{
-    background-color: #ececec;
+    background-color: #ececec ;
     cursor:pointer;
 }
 #prevq, #nextq{
@@ -211,6 +211,6 @@ h5{
     border-bottom: inherit;
   }
   
-#correct{
-    margin-top:2rem;
+#ansdet{
+  margin-top:2.5rem;
 }
