@@ -1,4 +1,9 @@
 // question Set
+//reload prevention
+// window.onbeforeunload = function() {
+//     return "Are you sure you want to leave? ";
+// }
+
 let question=[{
             ques:'Which of the following statement is/are correct about Favipiravir?',
             options:['Favipiravir is an antiviral COVID-19 drug.','Glenmark Pharmaceuticals under the brand name FabiFlu has launched an antiviral drug Favipiravir.',"It is India's first COVID-19 drug launched, priced at Rs 103 per tablet.","All the above are correct"],
@@ -181,6 +186,21 @@ let wrong=0;
 let unansw;
 let marked=0;
 
+window.onload=function () {
+    document.getElementById('showPop').addEventListener('click',function(){
+        document.getElementById('popup').style.display='block';
+    })
+    document.getElementById('popup').addEventListener('click',function(){
+        document.getElementById('popup').style.display='none';
+    })
+    document.getElementById('popupclose').addEventListener('click',function(){
+        document.getElementById('popup').style.display='none';
+    })
+    document.getElementById('viewscore').addEventListener('click',function(){
+        console.log('click');
+    })
+};
+
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
@@ -245,7 +265,15 @@ document.getElementById('startbut').addEventListener('click',function(){
                 unansw--;
                 document.getElementById('corans').innerHTML=correct;
                 document.getElementById('unanswered').innerHTML=unansw;
-
+                if(unansw==0){
+                    document.getElementById('popup').style.display='block';
+                    document.getElementById('popup').addEventListener('click',function(){
+                        document.getElementById('popup').style.display='none';
+                    })
+                    document.getElementById('popupclose').addEventListener('click',function(){
+                        document.getElementById('popup').style.display='none';
+                    })
+                }
                 }
             }
             else{
@@ -257,7 +285,15 @@ document.getElementById('startbut').addEventListener('click',function(){
                 unansw--;
                 document.getElementById('wronans').innerHTML=wrong;
                 document.getElementById('unanswered').innerHTML=unansw;
-
+                if(unansw==0){
+                    document.getElementById('popup').style.display='block';
+                    document.getElementById('popup').addEventListener('click',function(){
+                        document.getElementById('popup').style.display='none';
+                    })
+                    document.getElementById('popupclose').addEventListener('click',function(){
+                        document.getElementById('popup').style.display='none';
+                    })
+                }
                 }
             }
         })
@@ -300,7 +336,15 @@ document.getElementById('startbut').addEventListener('click',function(){
                             unansw--;
                             document.getElementById('corans').innerHTML=correct;
                             document.getElementById('unanswered').innerHTML=unansw;
-
+                            if(unansw==0){
+                                document.getElementById('popup').style.display='block';
+                                document.getElementById('popup').addEventListener('click',function(){
+                                    document.getElementById('popup').style.display='none';
+                                })
+                                document.getElementById('popupclose').addEventListener('click',function(){
+                                    document.getElementById('popup').style.display='none';
+                                })
+                            }
                         }
                     }
                     else{
@@ -312,7 +356,15 @@ document.getElementById('startbut').addEventListener('click',function(){
                             wrong++;
                             unansw--;
                             document.getElementById('wronans').innerHTML=wrong
-
+                            if(unansw==0){
+                                document.getElementById('popup').style.display='block';
+                                document.getElementById('popup').addEventListener('click',function(){
+                                    document.getElementById('popup').style.display='none';
+                                })
+                                document.getElementById('popupclose').addEventListener('click',function(){
+                                    document.getElementById('popup').style.display='none';
+                                })
+                            }
                         }
                     }
                 })
@@ -361,7 +413,6 @@ document.getElementById('nextq').addEventListener('click',function(){
             if(question[i].status==='wrong'){
                 document.getElementById('nav'+i).style.backgroundColor='#f8d7da'
             }
-            
         }
         if(question[index].status==='un'){
         for(let h=0;h<4;h++){
@@ -379,7 +430,15 @@ document.getElementById('nextq').addEventListener('click',function(){
 
                     document.getElementById('corans').innerHTML=correct;
                     document.getElementById('unanswered').innerHTML=unansw;
-
+                    if(unansw==0){
+                        document.getElementById('popup').style.display='block';
+                        document.getElementById('popup').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                        document.getElementById('popupclose').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                    }
                     }
                 }
                 else{
@@ -392,7 +451,15 @@ document.getElementById('nextq').addEventListener('click',function(){
 
                     document.getElementById('wronans').innerHTML=wrong;
                     document.getElementById('unanswered').innerHTML=unansw;
-
+                    if(unansw==0){
+                        document.getElementById('popup').style.display='block';
+                        document.getElementById('popup').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                        document.getElementById('popupclose').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                    }
 
                     }
                 }
@@ -454,7 +521,15 @@ document.getElementById('nextq').addEventListener('click',function(){
 
                     document.getElementById('corans').innerHTML=correct;
                     document.getElementById('unanswered').innerHTML=unansw;
-
+                    if(unansw==0){
+                        document.getElementById('popup').style.display='block';
+                        document.getElementById('popup').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                        document.getElementById('popupclose').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                    }
                     }
                 }
                 else{
@@ -468,7 +543,15 @@ document.getElementById('nextq').addEventListener('click',function(){
 
                     document.getElementById('wronans').innerHTML=wrong
                     document.getElementById('unanswered').innerHTML=unansw;
-
+                    if(unansw==0){
+                        document.getElementById('popup').style.display='block';
+                        document.getElementById('popup').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                        document.getElementById('popupclose').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                    }
                     }
                 }
             })
@@ -520,7 +603,15 @@ document.getElementById('prevq').addEventListener('click',function(){
 
                     document.getElementById('corans').innerHTML=correct;
                     document.getElementById('unanswered').innerHTML=unansw;
-
+                    if(unansw==0){
+                        document.getElementById('popup').style.display='block';
+                        document.getElementById('popup').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                        document.getElementById('popupclose').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                    }
                     }
                 }
                 else{
@@ -535,7 +626,15 @@ document.getElementById('prevq').addEventListener('click',function(){
 
                     document.getElementById('wronans').innerHTML=wrong
                     document.getElementById('unanswered').innerHTML=unansw;
-
+                    if(unansw==0){
+                        document.getElementById('popup').style.display='block';
+                        document.getElementById('popup').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                        document.getElementById('popupclose').addEventListener('click',function(){
+                            document.getElementById('popup').style.display='none';
+                        })
+                    }
                     }
                 }
             })
