@@ -1,3 +1,4 @@
+// question Set
 question=[{
             ques:'Which of the following statement is/are correct about Favipiravir?',
             options:['Favipiravir is an antiviral COVID-19 drug.','Glenmark Pharmaceuticals under the brand name FabiFlu has launched an antiviral drug Favipiravir.',"It is India's first COVID-19 drug launched, priced at Rs 103 per tablet.","All the above are correct"],
@@ -97,11 +98,23 @@ question=[{
             options:["Capsid","Enzymes","Follicles","Membrane"],
             ans:0
         }]
+let index;
+let qlimit;
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
     document.getElementById('userdetails').style.display='none'
     document.getElementById('instruction').style.display='block';
+    level=document.getElementById('difficulty').value;
+    if(level==='easy'){
+        qlimit=10
+    }
+    if(level==='medium'){
+        qlimit=15
+    }
+    if(level==='hard'){
+        qlimit=20
+    }
 }
 else{
     alert('Fill valid name')
@@ -116,10 +129,51 @@ document.getElementById('terms').addEventListener('change',function(){
     }
     else{
         document.getElementById('startbut').disabled=true;
-  
     }
 })
 
 document.getElementById('startbut').addEventListener('click',function(){
     document.getElementById('instruction').style.display='none';
+    document.getElementById('test').style.display='block';
+    index=0;
+    document.getElementById('qno').innerHTML="Question "+(index+1)
+    document.getElementById('ques').innerHTML=question[index].ques;
+    for(let j =0;j<4;j++){
+        document.getElementById('op'+j).innerHTML=question[index].options[j];
+    }
+    document.getElementById('quesNav').innerHTML=''
+    for(let k=0;k<qlimit;k++){
+        document.getElementById('quesNav').innerHTML+='<div class="grid-item" id="'+k+'">'+(k+1)+'</div>'
+    }
+})
+document.getElementById('nextq').addEventListener('click',function(){
+    console.log(index);
+    if(index<(qlimit-1)){
+        index++;
+        document.getElementById('qno').innerHTML="Question "+(index+1)
+        document.getElementById('ques').innerHTML=question[index].ques;
+        for(let j =0;j<4;j++){
+            document.getElementById('op'+j).innerHTML=question[index].options[j];
+        }
+    }
+    if(index==(qlimit-1)){
+        document.getElementById('qno').innerHTML="Question "+(index+1)
+
+        document.getElementById('ques').innerHTML=question[index].ques;
+        for(let j =0;j<4;j++){
+            document.getElementById('op'+j).innerHTML=question[index].options[j];
+        }
+    }
+
+})
+document.getElementById('prevq').addEventListener('click',function(){
+    if(index>0){
+        index--;
+        document.getElementById('qno').innerHTML="Question "+(index+1)
+
+        document.getElementById('ques').innerHTML=question[index].ques;
+        for(let j =0;j<4;j++){
+            document.getElementById('op'+j).innerHTML=question[index].options[j];
+        }
+    }
 })

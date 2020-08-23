@@ -13,7 +13,7 @@
 </head>
 <body>
 <!-- user name input section -->
-<section id='userdetails' style="display: none;">
+<section id='userdetails' >
     <div class="container" id='introbox'>
         <img src="https://pixabay.com/get/53e3d74b4855a414f1dc8460da2932771d3fd6e55b5571_640.png" alt="" height='150' width='150'>
         <h1 id='hi'>Hi, Welcome to TestPad</h1>
@@ -21,7 +21,7 @@
         <input type="text" class="form-control" placeholder="Name" id='name' required>
         <h3>Choose difficulty</h3>
         <!-- <input type="text" class='form-control'> -->
-        <select name="" id="" class="form-control">
+        <select name="" id="difficulty" class="form-control">
             <option value="easy">Easy</option>
             <option value="medium">Moderate</option>
             <option value="hard">Hard</option>
@@ -48,17 +48,17 @@
         <button class="btn btn-warning" disabled id='startbut'>Start Test</button>
     </div>
 </section>
-<section id='test'>
+<section id='test' style="display: none;">
         <div class="container" id='question'>
             <h4 id='timer'>Timer</h4>
             <h1 id='qno'>Question 1</h1>
             <div id='qs'>
                 <h5 id='ques'>Which of the following statement is/are correct about Favipiravir?</h5>
                 <ul class="list-group" id='options'>
-                    <li class="list-group-item" id='op1'>Cras justo odio</li>
-                    <li class="list-group-item" id='op2'>Dapibus ac facilisis in</li>
-                    <li class="list-group-item" id='op3'>Morbi leo risus</li>
-                    <li class="list-group-item" id='op4'>Porta ac consectetur ac</li>
+                    <li class="list-group-item" id='op0'>Cras justo odio</li>
+                    <li class="list-group-item" id='op1'>Dapibus ac facilisis in</li>
+                    <li class="list-group-item" id='op2'>Morbi leo risus</li>
+                    <li class="list-group-item" id='op3'>Porta ac consectetur ac</li>
                   </ul>
             <button class='btn' id='prevq'> <i class="fas fa-angle-double-left"></i>   Prev</button>
             <button class="btn" id='nextq'>Next   <i class="fas fa-angle-double-right"></i> </button>
@@ -67,7 +67,7 @@
         </div>
         <div class="container" id='navbar'>
             <h3>Question grid</h3>
-            <div class="grid-container">
+            <div class="grid-container" id='quesNav'>
                 <div class="grid-item">1</div>
                 <div class="grid-item">2</div>
                 <div class="grid-item">3</div>
