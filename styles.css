@@ -272,3 +272,24 @@ h5{
   font-weight: bold;
 }
 /* Popup box BEGIN */
+#score{
+  margin-top:1.5rem;
+  background-color: #cbeaed;
+  height:500px
+}
+#mainscore{
+  width:45%;
+  padding:2rem;
+  border-radius:0.7rem;
+}
+#criteria{
+  margin-left:3rem;
+  margin-top:4rem;
+}
+.btn-view{
+  background-color: #776d8a;
+  color:white
+}
+.btn-view:hover{
+  background-color:#2d4059
+}
