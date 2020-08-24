@@ -126,7 +126,7 @@ h4{
 #navbar{
     /* display: inline-block; */
     float:right;
-    width:23%;
+    width:22%;
     height:650px;
     border-radius:0.7rem;
     padding:2rem;
@@ -145,7 +145,8 @@ h5{
     font-size:1.25rem
 }
 .det{
-    margin:0
+    margin:0;
+    margin-left:1.5rem;
 }
 #qs{
     font-family: 'Merriweather Sans', sans-serif;
@@ -292,4 +293,10 @@ h5{
 }
 .btn-view:hover{
   background-color:#2d4059
+}
+.answers{
+  margin-left:1.5rem;
+}
+#viewscore{
+  margin-top:4rem
 }
