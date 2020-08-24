@@ -23,9 +23,18 @@
         <h5>So go ahead and submit the quiz to know your score...</h5>
     </div>
 </div>
-<section id='userdetails' >
+<div class="hover_bkgr_fricc" id='popupScore' >
+    <span class="helper"></span>
+    <div style="text-align:left">
+        <div class="popupCloseButton" id='popupcloseScore'>&times;</div>
+        <h3>You havent answered all the questions!!!</h3>
+        <h5>Do u want to submit the quiz??</h5>
+        <button class="btn btn-success" id='finalsubmit' style="margin:0">Submit</button>
+    </div>
+</div>
+<section id='userdetails' style='display: none;'>
     <div class="container" id='introbox'>
-        <img src="https://pixabay.com/get/53e3d74b4855a414f1dc8460da2932771d3fd6e55b5571_640.png" alt="" height='150' width='150'>
+        <img src="gods-creation-5328278_1920.png" alt="" height='175' width='175'>
         <h1 id='hi'>Hi, Welcome to TestPad</h1>
         <form action="">
         <input type="text" class="form-control" placeholder="Name" id='name' required>
@@ -120,7 +129,7 @@
 
                   </tr>
               </table>
-            <button class="btn btn-success">Submit Quiz</button>
+            <button class="btn btn-success" id='viewscore'>Submit Quiz</button>
         </div>
 </section>
 </body>

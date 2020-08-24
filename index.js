@@ -187,18 +187,16 @@ let unansw;
 let marked=0;
 
 window.onload=function () {
-    document.getElementById('showPop').addEventListener('click',function(){
-        document.getElementById('popup').style.display='block';
-    })
-    document.getElementById('popup').addEventListener('click',function(){
-        document.getElementById('popup').style.display='none';
-    })
-    document.getElementById('popupclose').addEventListener('click',function(){
-        document.getElementById('popup').style.display='none';
-    })
-    document.getElementById('viewscore').addEventListener('click',function(){
-        console.log('click');
-    })
+    // document.getElementById('showPop').addEventListener('click',function(){
+    //     document.getElementById('popup').style.display='block';
+    // })
+    // document.getElementById('popup').addEventListener('click',function(){
+    //     document.getElementById('popup').style.display='none';
+    // })
+    // document.getElementById('popupclose').addEventListener('click',function(){
+    //     document.getElementById('popup').style.display='none';
+    // })
+    
 };
 
 document.getElementById('submitbut').addEventListener('click',function(e){
@@ -240,6 +238,21 @@ document.getElementById('startbut').addEventListener('click',function(){
     index=0;
     document.getElementById('qno').innerHTML="Question "+(index+1)
     document.getElementById('ques').innerHTML=question[index].ques;
+    document.getElementById('viewscore').addEventListener('click',function(){
+        if(unansw!=0){
+        document.getElementById('popupScore').style.display='block';
+        document.getElementById('finalsubmit').addEventListener('click',function(){
+            // score page 
+            console.log('finalsumbmit');
+        })
+        document.getElementById('popupcloseScore').addEventListener('click',function(){
+            document.getElementById('popupScore').style.display='none';
+        })
+        }
+        else{
+
+        }
+    })
     for(let j =0;j<4;j++){
         document.getElementById('op'+j).innerHTML=question[index].options[j];
     }
