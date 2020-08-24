@@ -204,6 +204,13 @@ let marked=0;
 
 //     document.getElementById('')
 // }
+//basic mode
+function calcScore(correct,wrong,totalQues){
+total=totalQues*3;
+marks=correct*3+wrong*(-1);
+percent=marks/total
+return percent*100;
+}
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
@@ -251,7 +258,10 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
             document.getElementById('popupScore').style.display='none';
-
+            totalPercent=calcScore(correct,wrong,qlimit);
+            document.getElementById('scorePercent').innerHTML="You have scored "+totalPercent+"%";
+            document.getElementById('scoreCorrect').innerHTML=correct;
+            document.getElementById('scorewrong').innerHTML=wrong;
             console.log('finalsumbmit');
         })
         document.getElementById('popupcloseScore').addEventListener('click',function(){
@@ -261,6 +271,10 @@ document.getElementById('startbut').addEventListener('click',function(){
         else{
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
+            totalPercent=calcScore(correct,wrong,qlimit);
+            document.getElementById('scorePercent').innerHTML="You have scored "+totalPercent+"%";
+            document.getElementById('scoreCorrect').innerHTML=correct;
+            document.getElementById('scorewrong').innerHTML=wrong;
         }
     })
     for(let j =0;j<4;j++){

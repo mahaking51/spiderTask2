@@ -69,7 +69,7 @@
 </section>
 <section id='test' style="display: none;">
         <div class="container" id='question'>
-            <h4 id='timer'>Timer</h4>
+            <h4 id='timer'></h4>
             <h1 id='qno'>Question 1</h1>
             <div id='qs'>
                 <h5 id='ques'>Which of the following statement is/are correct about Favipiravir?</h5>
@@ -116,14 +116,21 @@
 <section id='score' style="display: none;">
     <div class="container" id='mainscore'>
         <img src="c65e52807e277f3865e2e76776ca9e8e.jpg" alt="" id='reaction' height="150" width='170' style="float: left;">
-        <h1 style='display:inline-block; margin:3rem'>You have scored 100%</h1>
+        <h1 style='display:inline-block; margin:3rem' id='scorePercent'>You have scored 100%</h1>
         <div id='criteria'>
         <h2>Scoring criteria:</h2>
-        <h4>lorem ipsum</h4>
-        <h4>lorem ipsum</h4>
-        <h4>lorem ipsum</h4>
+        <table>
+            <tr>
+                <td><h4>Correct answers</h4></td>
+                <td><h4 id='scoreCorrect'></h4></td>
+            </tr>
+            <tr>
+                <td><h4>Incorrect answers</h4></td>
+                <td><h4 id='scorewrong'></h4></td>
+            </tr>
+        </table>
     </div>
-    <button class="btn btn-view">View Scores</button>
+    <!-- <button class="btn btn-view">View Scores</button> -->
     </div>
 </section>
 </body>
