@@ -185,6 +185,9 @@ let correct=0;
 let wrong=0;
 let unansw;
 let marked=0;
+let time=2;
+let sec=0;
+let min=time;
 
 // window.onload=function () {
 //     // document.getElementById('showPop').addEventListener('click',function(){
@@ -200,10 +203,40 @@ let marked=0;
 // };
 
 // timer
-// function timer(time){
+function fireTimer(){
+    myTimer=setInterval(timer,1000);
+}
+function timer(){
+    if(sec==0){
+        sec=59;
+        min--;
+        console.log(min);
+    }
+    else{
+        sec--;
+    }
+    if(min==0 && sec==0){
+        clearInterval(myTimer);
+    }
+    if(sec<10){
+        document.getElementById('timer').innerHTML=min+':0'+sec;
+    }
+    if(min<10){
+        document.getElementById('timer').innerHTML='0'+min+':'+sec;
 
-//     document.getElementById('')
-// }
+    }
+    if(min<10 && sec<10){
+        document.getElementById('timer').innerHTML='0'+min+':0'+sec;
+    }
+    if(min>10 && sec<10){
+        document.getElementById('timer').innerHTML=min+':0'+sec; 
+    }
+    if(min<10 && sec>10){
+        document.getElementById('timer').innerHTML='0'+min+':'+sec;
+    }
+    
+    // document.getElementById('timer').innerHTML=min+':'+sec;
+}
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
@@ -240,6 +273,7 @@ document.getElementById('terms').addEventListener('change',function(){
 document.getElementById('startbut').addEventListener('click',function(){
     document.getElementById('instruction').style.display='none';
     document.getElementById('test').style.display='block';
+    fireTimer();
     index=0;
     document.getElementById('qno').innerHTML="Question "+(index+1)
     document.getElementById('ques').innerHTML=question[index].ques;
