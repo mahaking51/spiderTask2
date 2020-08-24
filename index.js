@@ -188,7 +188,7 @@ let marked=0;
 let time=2;
 let sec=0;
 let min=time;
-
+let remainTime;
 // window.onload=function () {
 //     // document.getElementById('showPop').addEventListener('click',function(){
 //     //     document.getElementById('popup').style.display='block';
@@ -223,21 +223,34 @@ function shuffle(array) {
   }
   //shuffling the question array
   shuffle(question);
+  // score calculator
+  function calculator(correct,wrong,timeLeft,notAns){
+      total=correct*3+wrong*(-1)+timeLeft*(0.5)+notAns*(0.5)*(-1);
+      return total
+  }
 // timer
 function fireTimer(){
     myTimer=setInterval(timer,1000);
 }
-function timer(){
+function result(){
+    overallScore=calculator(correct,wrong,remainTime,unansw);
+    document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
+    document.getElementById('scoreCorrect').innerHTML=correct;
+    document.getElementById('scoreWrong').innerHTML=wrong;
+    document.getElementById('scoreTime').innerHTML=remainTime;
+    console.log(overallScore);
+    clearInterval(myTimer);
+}
+ function timer(){
+    remainTime--;
     if(sec==0){
         sec=59;
         min--;
-        console.log(min);
     }
     else{
         sec--;
     }
     if(min==0 && sec==0){
-        clearInterval(myTimer);
         document.getElementById('popupFinish').style.display='block';
         document.getElementById('popup').addEventListener('click',function(){
         document.getElementById('popupFinish').style.display='none';
@@ -247,6 +260,8 @@ function timer(){
     })
         document.getElementById('score').style.display='block';
         document.getElementById('test').style.display='none';
+        result();
+
     }
     if(sec<10){
         document.getElementById('timer').innerHTML=min+':0'+sec;
@@ -290,7 +305,8 @@ if(document.getElementById('name').value!=''){
         qlimit=20;
         time=2;
     }
-    min=time
+    min=time;
+    remainTime=time*60+sec;
     unansw=qlimit;
 }
 else{
@@ -332,7 +348,11 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
             document.getElementById('popupScore').style.display='none';
-
+            overallScore=calculator(correct,wrong,remainTime,unansw);
+            document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
+            document.getElementById('scoreCorrect').innerHTML=correct;
+            document.getElementById('scoreWrong').innerHTML=wrong;
+            document.getElementById('scoreTime').innerHTML=remainTime;
             console.log('finalsumbmit');
         })
         document.getElementById('popupcloseScore').addEventListener('click',function(){
@@ -343,6 +363,11 @@ document.getElementById('startbut').addEventListener('click',function(){
             clearInterval(myTimer);
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
+            overallScore=calculator(correct,wrong,remainTime,unansw);
+        document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
+        document.getElementById('scoreCorrect').innerHTML=correct;
+        document.getElementById('scoreWrong').innerHTML=wrong;
+        document.getElementById('scoreTime').innerHTML=remainTime;
         }
     })
     for(let j =0;j<4;j++){

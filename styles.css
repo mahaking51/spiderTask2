@@ -293,3 +293,6 @@ h5{
 .btn-view:hover{
   background-color:#2d4059
 }
+.scoreDisplay{
+  margin-left:2.5rem;
+}
