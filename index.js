@@ -201,7 +201,28 @@ let min=time;
 //     // })
     
 // };
+//randomizing the array
 
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
+  //shuffling the question array
+  shuffle(question);
 // timer
 function fireTimer(){
     myTimer=setInterval(timer,1000);
@@ -217,6 +238,15 @@ function timer(){
     }
     if(min==0 && sec==0){
         clearInterval(myTimer);
+        document.getElementById('popupFinish').style.display='block';
+        document.getElementById('popup').addEventListener('click',function(){
+        document.getElementById('popupFinish').style.display='none';
+    })
+    document.getElementById('popupcloseFinish').addEventListener('click',function(){
+        document.getElementById('popupFinish').style.display='none';
+    })
+        document.getElementById('score').style.display='block';
+        document.getElementById('test').style.display='none';
     }
     if(sec<10){
         document.getElementById('timer').innerHTML=min+':0'+sec;
@@ -234,8 +264,10 @@ function timer(){
     if(min<10 && sec>10){
         document.getElementById('timer').innerHTML='0'+min+':'+sec;
     }
-    
-    // document.getElementById('timer').innerHTML=min+':'+sec;
+    if(min==0 && sec<10){
+        document.getElementById('timer').innerHTML='0'+min+':0'+sec;
+        document.getElementById('timer').style.color='#dd2c00'
+    }
 }
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
@@ -293,6 +325,7 @@ document.getElementById('startbut').addEventListener('click',function(){
         })
         }
         else{
+            clearInterval(myTimer);
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
         }
