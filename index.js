@@ -183,24 +183,19 @@ let index;
 let qlimit;
 let correct=0;
 let wrong=0;
-let unansw;
 let marked=0;
 let time=2;
 let sec=0;
 let min=time;
-let remainTime;
-// window.onload=function () {
-//     // document.getElementById('showPop').addEventListener('click',function(){
-//     //     document.getElementById('popup').style.display='block';
-//     // })
-//     // document.getElementById('popup').addEventListener('click',function(){
-//     //     document.getElementById('popup').style.display='none';
-//     // })
-//     // document.getElementById('popupclose').addEventListener('click',function(){
-//     //     document.getElementById('popup').style.display='none';
-//     // })
-    
-// };
+let remainTime, name, unansw, scoreStore,diff,scoreArr;
+if(localStorage.getItem('testpadScores')==null){
+    localStorage.setItem('testpadScores','[]');
+    scoreArr=[];
+}
+else{
+    scoreArr=JSON.parse(localStorage.getItem('testpadScores'));
+    console.log(scoreArr);
+}
 //randomizing the array
 
 function shuffle(array) {
@@ -239,6 +234,14 @@ function result(){
     document.getElementById('scoreWrong').innerHTML=wrong;
     document.getElementById('scoreTime').innerHTML=remainTime;
     console.log(overallScore);
+    scoreStore={
+        name:name,
+        difficulty:diff,
+        score:overallScore
+    }
+    scoreArr.push(scoreStore);
+    scoreArr=JSON.stringify(scoreArr)
+    localStorage.setItem('testpadScores',scoreArr);
     clearInterval(myTimer);
 }
  function timer(){
@@ -292,18 +295,22 @@ if(document.getElementById('name').value!=''){
     document.getElementById('userdetails').style.display='none'
     document.getElementById('instruction').style.display='block';
     level=document.getElementById('difficulty').value;
+    name=document.getElementById('name').value;
     if(level==='easy'){
         qlimit=10;
         time=1;
+        diff="easy"
     }
     if(level==='medium'){
         qlimit=15;
         time=1;
         sec=30;
+        diff='medium'
     }
     if(level==='hard'){
         qlimit=20;
         time=2;
+        diff='hard'
     }
     min=time;
     remainTime=time*60+sec;
@@ -349,6 +356,14 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('test').style.display='none';
             document.getElementById('popupScore').style.display='none';
             overallScore=calculator(correct,wrong,remainTime,unansw);
+            scoreStore={
+                name:name,
+                difficulty:diff,
+                score:overallScore
+            }
+            scoreStore.push(scoreArr);
+            scoreArr=JSON.stringify(scoreArr)
+            localStorage.setItem('testpadScores',scoreArr);
             document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scoreWrong').innerHTML=wrong;
@@ -367,7 +382,15 @@ document.getElementById('startbut').addEventListener('click',function(){
         document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
         document.getElementById('scoreCorrect').innerHTML=correct;
         document.getElementById('scoreWrong').innerHTML=wrong;
-        document.getElementById('scoreTime').innerHTML=remainTime;
+        document.getElementById('scoreTime').innerHTML=remainTime;scoreStore={
+            name:name,
+            difficulty:diff,
+            score:overallScore
+        }
+        scoreStore.push(scoreArr);
+        scoreArr=JSON.stringify(scoreArr)
+        localStorage.setItem('testpadScores',scoreArr);
+
         }
     })
     for(let j =0;j<4;j++){
