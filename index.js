@@ -269,6 +269,8 @@ function timer(){
         document.getElementById('timer').style.color='#dd2c00'
     }
 }
+
+
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
@@ -276,14 +278,19 @@ if(document.getElementById('name').value!=''){
     document.getElementById('instruction').style.display='block';
     level=document.getElementById('difficulty').value;
     if(level==='easy'){
-        qlimit=10
+        qlimit=10;
+        time=1;
     }
     if(level==='medium'){
-        qlimit=15
+        qlimit=15;
+        time=1;
+        sec=30;
     }
     if(level==='hard'){
-        qlimit=20
+        qlimit=20;
+        time=2;
     }
+    min=time
     unansw=qlimit;
 }
 else{
@@ -305,6 +312,14 @@ document.getElementById('terms').addEventListener('change',function(){
 document.getElementById('startbut').addEventListener('click',function(){
     document.getElementById('instruction').style.display='none';
     document.getElementById('test').style.display='block';
+    if(sec<10){
+        document.getElementById('timer').innerHTML='0'+min+':0'+sec
+
+    }
+    else{
+        document.getElementById('timer').innerHTML='0'+min+':'+sec
+
+    }
     fireTimer();
     index=0;
     document.getElementById('qno').innerHTML="Question "+(index+1)
