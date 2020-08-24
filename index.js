@@ -186,19 +186,24 @@ let wrong=0;
 let unansw;
 let marked=0;
 
-window.onload=function () {
-    // document.getElementById('showPop').addEventListener('click',function(){
-    //     document.getElementById('popup').style.display='block';
-    // })
-    // document.getElementById('popup').addEventListener('click',function(){
-    //     document.getElementById('popup').style.display='none';
-    // })
-    // document.getElementById('popupclose').addEventListener('click',function(){
-    //     document.getElementById('popup').style.display='none';
-    // })
+// window.onload=function () {
+//     // document.getElementById('showPop').addEventListener('click',function(){
+//     //     document.getElementById('popup').style.display='block';
+//     // })
+//     // document.getElementById('popup').addEventListener('click',function(){
+//     //     document.getElementById('popup').style.display='none';
+//     // })
+//     // document.getElementById('popupclose').addEventListener('click',function(){
+//     //     document.getElementById('popup').style.display='none';
+//     // })
     
-};
+// };
 
+// timer
+// function timer(time){
+
+//     document.getElementById('')
+// }
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
@@ -243,6 +248,10 @@ document.getElementById('startbut').addEventListener('click',function(){
         document.getElementById('popupScore').style.display='block';
         document.getElementById('finalsubmit').addEventListener('click',function(){
             // score page 
+            document.getElementById('score').style.display='block';
+            document.getElementById('test').style.display='none';
+            document.getElementById('popupScore').style.display='none';
+
             console.log('finalsumbmit');
         })
         document.getElementById('popupcloseScore').addEventListener('click',function(){
@@ -250,7 +259,8 @@ document.getElementById('startbut').addEventListener('click',function(){
         })
         }
         else{
-
+            document.getElementById('score').style.display='block';
+            document.getElementById('test').style.display='none';
         }
     })
     for(let j =0;j<4;j++){
