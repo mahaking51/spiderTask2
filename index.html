@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
     <script src="https://kit.fontawesome.com/4298b3fd63.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Spider Task Title</title>
@@ -60,14 +59,15 @@
     <div class='container' id='instBox'>
         <h1>Instructions</h1>
         <ul>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>This quiz tests your knowledge on the current pandemic the world is under.</p></li>
+            <li><p>Each difficulty level has different number of questions and time limit.Easy -10 questions in 1 min ,Moderate -15 questions in 1.5 min, Hard -20 questions in 2min</p></li>
+            <li><p>Each question has 4 options and only one of the options is correct.</p></li>
+            <li><p>Each correct answer gets you a 3 points while a wrong answer deducts 1 point from ur score.</p></li>
+            <li><p>Every unanswered question reduces your score by 0.5.</p></li>
+            <li><p>You can navigate to any question by clicking on the question grid which takes you to your </p></li>
+            <li><p>You can move to the next question by clicking on the  Next   <i class="fas fa-angle-double-right"></i> and   <i class="fas fa-angle-double-left"></i>   Prev to go to the previous question</p></li>
+            <li><p>Click on the submit button to submit your responses and view your final score</p></li>
+            <li><p>Your final score also depends on the time you finish</p></li>
             <input type="checkbox" name="" id="terms">
             <p id='conditions'>I accept all terms and conditions of TestPad and wont indulge in any form of malpractices</p>
         </ul>
@@ -89,7 +89,6 @@
             <button class='btn' id='prevq'> <i class="fas fa-angle-double-left"></i>   Prev</button>
             <button class="btn" id='nextq'>Next   <i class="fas fa-angle-double-right"></i> </button>
             </div>
-            <button class='btn btn-warning' id='review'>Mark for review</button>
         </div>
         <div class="container" id='navbar'>
             <h3>Question grid</h3>
@@ -109,11 +108,6 @@
                   <tr>
                     <td><h5 id='unans' class="det">Unanswered:</h5></td>
                     <td><h5 class='det' id='unanswered'></h5></td>
-
-                  </tr>
-                  <tr>
-                    <td><h5 id='mark' class="det">Marked for Review:</h5></td>
-                    <td><h5 class='det' id='markans'></h5></td>
 
                   </tr>
               </table>
