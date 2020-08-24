@@ -287,7 +287,7 @@ document.getElementById('startbut').addEventListener('click',function(){
     document.getElementById('corans').innerHTML=correct;
     document.getElementById('wronans').innerHTML=wrong;
     document.getElementById('unanswered').innerHTML=unansw;
-    document.getElementById('markans').innerHTML=marked;
+    // document.getElementById('markans').innerHTML=marked;
     // document.getElementById('nav'+index).style.backgroundColor='#bbe1fa';
     for(let h=0;h<4;h++){
         clicked=0
@@ -298,6 +298,7 @@ document.getElementById('startbut').addEventListener('click',function(){
                 question[index].status='correct'
                 question[index].choose=h
                 document.getElementById('op'+h).style.backgroundColor='#d4edda';
+                document.getElementById('op'+h).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
                 correct++;
                 unansw--;
                 document.getElementById('corans').innerHTML=correct;
@@ -318,6 +319,7 @@ document.getElementById('startbut').addEventListener('click',function(){
                 question[index].status='wrong';
                 question[index].choose=h
                 document.getElementById('op'+h).style.backgroundColor='#f8d7da';
+                document.getElementById('op'+h).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
                 wrong++;
                 unansw--;
                 document.getElementById('wronans').innerHTML=wrong;
@@ -462,6 +464,8 @@ document.getElementById('nextq').addEventListener('click',function(){
                     question[index].status='correct'
                     question[index].choose=h;
                     document.getElementById('op'+h).style.backgroundColor='#d4edda';
+                    document.getElementById('op'+h).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
+
                     correct++;
                     unansw--;
 
@@ -483,6 +487,8 @@ document.getElementById('nextq').addEventListener('click',function(){
                         question[index].status='wrong';
                         question[index].choose=h;
                     document.getElementById('op'+h).style.backgroundColor='#f8d7da';
+                    document.getElementById('op'+h).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
+
                     wrong++;
                     unansw--;
 
@@ -508,7 +514,9 @@ document.getElementById('nextq').addEventListener('click',function(){
             document.getElementById('op'+i).style.backgroundColor='white';
         }
         document.getElementById('op'+question[index].choose).style.backgroundColor='#d4edda';
-        document.getElementById('nav'+index).style.backgroundColor='#d4edda';
+        document.getElementById('op'+question[index].choose).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
+
+        // document.getElementById('nav'+index).style.backgroundColor='#d4edda';
 
     }
     if(question[index].status==='wrong'){
@@ -516,7 +524,9 @@ document.getElementById('nextq').addEventListener('click',function(){
             document.getElementById('op'+i).style.backgroundColor='white';
         }
         document.getElementById('op'+question[index].choose).style.backgroundColor='#f8d7da';
-        document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
+        document.getElementById('op'+question[index].choose).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
+
+        // document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
 
 
     }
@@ -553,6 +563,8 @@ document.getElementById('nextq').addEventListener('click',function(){
                         question[index].choose=h;
 
                     document.getElementById('op'+h).style.backgroundColor='#d4edda';
+                    document.getElementById('op'+h).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
+
                     correct++
                     unansw--;
 
@@ -575,6 +587,8 @@ document.getElementById('nextq').addEventListener('click',function(){
                         question[index].choose=h;
                         console.log(question[index].status);
                     document.getElementById('op'+h).style.backgroundColor='#f8d7da';
+                    document.getElementById('op'+h).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
+
                     wrong++;
                     unansw--;
 
@@ -634,7 +648,9 @@ document.getElementById('prevq').addEventListener('click',function(){
                         question[index].choose=h;
 
                     document.getElementById('op'+h).style.backgroundColor='#d4edda';
-                    document.getElementById('nav'+index).style.backgroundColor='#d4edda';
+                    document.getElementById('op'+h).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
+
+                    // document.getElementById('nav'+index).style.backgroundColor='#d4edda';
                     correct++
                     unansw--;
 
@@ -657,7 +673,9 @@ document.getElementById('prevq').addEventListener('click',function(){
                         question[index].choose=h;
 
                     document.getElementById('op'+h).style.backgroundColor='#f8d7da';
-                    document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
+                    document.getElementById('op'+h).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
+
+                    // document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
                     wrong++;
                     unansw--;
 
@@ -682,7 +700,8 @@ document.getElementById('prevq').addEventListener('click',function(){
             document.getElementById('op'+i).style.backgroundColor='white';
         }
         document.getElementById('op'+question[index].choose).style.backgroundColor='#d4edda';
-        document.getElementById('nav'+index).style.backgroundColor='#d4edda';
+        document.getElementById('op'+question[index].choose).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
+
 
     }
     if(question[index].status==='wrong'){
@@ -690,7 +709,9 @@ document.getElementById('prevq').addEventListener('click',function(){
             document.getElementById('op'+i).style.backgroundColor='white';
         }
         document.getElementById('op'+question[index].choose).style.backgroundColor='#f8d7da';
-        document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
+        document.getElementById('op'+question[index].choose).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
+
+        // document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
 
     }
 

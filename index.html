@@ -53,14 +53,12 @@
     <div class='container' id='instBox'>
         <h1>Instructions</h1>
         <ul>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
-            <li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p></li>
+            <li><p>This quiz tests your knowledge on the current pandemic thats taking over the world.</p></li>
+            <li><p>Each level of difficulty has different number of questions. Easy - 10, Medium - 15, Hard - 20 questions</p></li>
+            <li><p>Each question consists of four option and out of the for option only one of them is correct.</p></li>
+            <li><p>Correct answers get 3 points while incorrect ones <strong>reducesyour score by 1 point</strong></p></li>
+            <li><p>You can navigate through the questions by clicking on the  Next   <i class="fas fa-angle-double-right"></i> to move to the next question and <i class="fas fa-angle-double-left"></i>   Prev to go to the previous question</p></li>
+            <li><p>After you answer all the questions , go ahead and submit to view your score</p></li>
             <input type="checkbox" name="" id="terms">
             <p id='conditions'>I accept all terms and conditions of TestPad and wont indulge in any form of malpractices</p>
         </ul>
@@ -82,7 +80,7 @@
             <button class='btn' id='prevq'> <i class="fas fa-angle-double-left"></i>   Prev</button>
             <button class="btn" id='nextq'>Next   <i class="fas fa-angle-double-right"></i> </button>
             </div>
-            <button class='btn btn-warning' id='review'>Mark for review</button>
+            <!-- <button class='btn btn-warning' id='review'>Mark for review</button> -->
         </div>
         <div class="container" id='navbar'>
             <!-- <h3>Question grid</h3> -->
@@ -104,11 +102,6 @@
                     <td><h5 class='det' id='unanswered' ></h5></td>
 
                   </tr>
-                  <tr>
-                    <td><h5 id='mark' class="det">Marked for Review:</h5></td>
-                    <td><h5 class='det' id='markans' ></h5></td>
-
-                  </tr>
               </table>
             <button class="btn btn-success" id='viewscore'>Submit Quiz</button>
         </div>
@@ -118,14 +111,14 @@
         <img src="c65e52807e277f3865e2e76776ca9e8e.jpg" alt="" id='reaction' height="150" width='170' style="float: left;">
         <h1 style='display:inline-block; margin:3rem' id='scorePercent'>You have scored 100%</h1>
         <div id='criteria'>
-        <h2>Scoring criteria:</h2>
+        <h2>Test Report:</h2>
         <table>
             <tr>
-                <td><h4>Correct answers</h4></td>
+                <td><h4>Correct answers : </h4></td>
                 <td><h4 id='scoreCorrect'></h4></td>
             </tr>
             <tr>
-                <td><h4>Incorrect answers</h4></td>
+                <td><h4>Incorrect answers : </h4></td>
                 <td><h4 id='scorewrong'></h4></td>
             </tr>
         </table>
