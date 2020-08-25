@@ -230,8 +230,8 @@ function shuffle(array) {
   //shuffling the question array
   shuffle(question);
   // score calculator
-  function calculator(correct,wrong,timeLeft,notAns){
-      total=correct*3+wrong*(-1)+timeLeft*(0.5)+notAns*(0.5)*(-1);
+  function calculator(correct,wrong,time,notAns){
+      total=correct*3+wrong*(-1)+time*(0.5)*(-1)+notAns*(0.5)*(-1);
       return total
   }
 // timer
@@ -339,7 +339,7 @@ function result(){
     clearInterval(myTimer);
 }
  function timer(){
-    remainTime--;
+    remainTime++;
     if(sec==0){
         sec=59;
         min--;
@@ -407,7 +407,7 @@ if(document.getElementById('name').value!=''){
         diff='hard'
     }
     min=time;
-    remainTime=time*60+sec;
+    remainTime=0;
     unansw=qlimit;
 }
 else{
