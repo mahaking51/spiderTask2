@@ -1,8 +1,8 @@
-// question Set
 //reload prevention
-// window.onbeforeunload = function() {
-//     return "Are you sure you want to leave? ";
-// }
+window.onbeforeunload = function() {
+    return "Are you sure you want to leave? ";
+}
+// question Set
 
 let question=[{
             ques:'Which of the following statement is/are correct about Favipiravir?',
@@ -186,24 +186,6 @@ let wrong=0;
 let unansw;
 let marked=0;
 
-// window.onload=function () {
-//     // document.getElementById('showPop').addEventListener('click',function(){
-//     //     document.getElementById('popup').style.display='block';
-//     // })
-//     // document.getElementById('popup').addEventListener('click',function(){
-//     //     document.getElementById('popup').style.display='none';
-//     // })
-//     // document.getElementById('popupclose').addEventListener('click',function(){
-//     //     document.getElementById('popup').style.display='none';
-//     // })
-    
-// };
-
-// timer
-// function timer(time){
-
-//     document.getElementById('')
-// }
 //basic mode
 function calcScore(correct,wrong,totalQues){
 total=totalQues*3;
@@ -280,15 +262,9 @@ document.getElementById('startbut').addEventListener('click',function(){
     for(let j =0;j<4;j++){
         document.getElementById('op'+j).innerHTML=question[index].options[j];
     }
-    // document.getElementById('quesNav').innerHTML=''
-    // for(let k=0;k<qlimit;k++){
-    //     document.getElementById('quesNav').innerHTML+='<div class="grid-item" id="nav'+k+'">'+(k+1)+'</div>'
-    // }
     document.getElementById('corans').innerHTML=correct;
     document.getElementById('wronans').innerHTML=wrong;
     document.getElementById('unanswered').innerHTML=unansw;
-    // document.getElementById('markans').innerHTML=marked;
-    // document.getElementById('nav'+index).style.backgroundColor='#bbe1fa';
     for(let h=0;h<4;h++){
         clicked=0
         document.getElementById('op'+h).addEventListener('click',function(){
@@ -337,99 +313,6 @@ document.getElementById('startbut').addEventListener('click',function(){
             }
         })
     }
-    //nav to question randomly
-    // for(let k=0;k<qlimit;k++){
-    //     document.getElementById('nav'+k).addEventListener('click',function(){
-    //         index=k
-    //         document.getElementById('qno').innerHTML="Question "+(k+1);
-    //         document.getElementById('ques').innerHTML=question[k].ques;
-    //         for(let j =0;j<4;j++){
-    //             document.getElementById('op'+j).innerHTML=question[k].options[j];
-    //         }    
-    //         for(let i=0;i<qlimit;i++){
-    //             if(i==k){
-    //                 document.getElementById('nav'+i).style.backgroundColor='#bbe1fa'
-    //             }
-    //             if(question[i].status==='correct'){
-    //                 document.getElementById('nav'+i).style.backgroundColor='#d4edda'
-    
-    //             }
-    //             if(question[i].status==='wrong'){
-    //                 document.getElementById('nav'+i).style.backgroundColor='#f8d7da'
-    //             }
-    //         }
-    //         if(question[index].status==='un'){
-    //             console.log('not answe');
-    //         for(let i=0;i<4;i++){
-    //             clicked=0;
-    //             document.getElementById('op'+i).style.backgroundColor='white';
-    //             document.getElementById('op'+i).addEventListener('click',function(){
-    //                 clicked++;
-    //                 if(i===question[index].ans && question[index].status==='un'){
-    //                     if(clicked==1 && question[index].status==='un'){
-    //                         question[index].status='correct'
-    //                         question[index].choose=i;
-    //                         document.getElementById('nav'+index).style.backgroundColor='#d4edda';
-    //                         document.getElementById('op'+h).style.backgroundColor='#d4edda';
-    //                         correct++;
-    //                         unansw--;
-    //                         document.getElementById('corans').innerHTML=correct;
-    //                         document.getElementById('unanswered').innerHTML=unansw;
-    //                         if(unansw==0){
-    //                             document.getElementById('popup').style.display='block';
-    //                             document.getElementById('popup').addEventListener('click',function(){
-    //                                 document.getElementById('popup').style.display='none';
-    //                             })
-    //                             document.getElementById('popupclose').addEventListener('click',function(){
-    //                                 document.getElementById('popup').style.display='none';
-    //                             })
-    //                         }
-    //                     }
-    //                 }
-    //                 else{
-    //                     if(clicked==1 && question[index].status==='un'){
-    //                         question[index].status='wrong';
-    //                         question[index].choose=i
-    //                         document.getElementById('op'+h).style.backgroundColor='#f8d7da';
-    //                         document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
-    //                         wrong++;
-    //                         unansw--;
-    //                         document.getElementById('wronans').innerHTML=wrong
-    //                         if(unansw==0){
-    //                             document.getElementById('popup').style.display='block';
-    //                             document.getElementById('popup').addEventListener('click',function(){
-    //                                 document.getElementById('popup').style.display='none';
-    //                             })
-    //                             document.getElementById('popupclose').addEventListener('click',function(){
-    //                                 document.getElementById('popup').style.display='none';
-    //                             })
-    //                         }
-    //                     }
-    //                 }
-    //             })
-    //         }
-    //     }
-    //     if(question[index].status==='correct'){
-    //         console.log('corre');
-    //         for(let i=0;i<4;i++){
-    //             document.getElementById('op'+i).style.backgroundColor='white';
-    //         }
-    //         document.getElementById('op'+question[index].choose).style.backgroundColor='#d4edda';
-    //         document.getElementById('nav'+index).style.backgroundColor='#d4edda';
-
-    //     }
-    //     if(question[index].status==='wrong'){
-    //         console.log("wron");
-    //         for(let i=0;i<4;i++){
-    //             document.getElementById('op'+i).style.backgroundColor='white';
-    //         }
-    //         document.getElementById('op'+question[index].choose).style.backgroundColor='#f8d7da';
-    //         document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
-
-    
-    //     }
-    //     })
-    // }
 
 })
 document.getElementById('nextq').addEventListener('click',function(){
@@ -441,18 +324,6 @@ document.getElementById('nextq').addEventListener('click',function(){
         for(let j =0;j<4;j++){
             document.getElementById('op'+j).innerHTML=question[index].options[j];
         }
-        // for(let i=0;i<qlimit;i++){
-        //     if(i==index){
-        //         document.getElementById('nav'+i).style.backgroundColor='#bbe1fa'
-        //     }
-        //     if(question[i].status==='correct'){
-        //         document.getElementById('nav'+i).style.backgroundColor='#d4edda'
-
-        //     }
-        //     if(question[i].status==='wrong'){
-        //         document.getElementById('nav'+i).style.backgroundColor='#f8d7da'
-        //     }
-        // }
         if(question[index].status==='un'){
         for(let h=0;h<4;h++){
             clicked=0;
@@ -516,7 +387,6 @@ document.getElementById('nextq').addEventListener('click',function(){
         document.getElementById('op'+question[index].choose).style.backgroundColor='#d4edda';
         document.getElementById('op'+question[index].choose).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
 
-        // document.getElementById('nav'+index).style.backgroundColor='#d4edda';
 
     }
     if(question[index].status==='wrong'){
@@ -526,26 +396,12 @@ document.getElementById('nextq').addEventListener('click',function(){
         document.getElementById('op'+question[index].choose).style.backgroundColor='#f8d7da';
         document.getElementById('op'+question[index].choose).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
 
-        // document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
 
 
     }
     }
     if(index==(qlimit-1)){
         document.getElementById('qno').innerHTML="Question "+(index+1)
-        // for(let i=0;i<qlimit;i++){
-        //     if(i==index){
-        //         document.getElementById('nav'+i).style.backgroundColor='#bbe1fa'
-        //     }
-        //     if(question[i].status==='correct'){
-        //         document.getElementById('nav'+i).style.backgroundColor='#d4edda'
-
-        //     }
-        //     if(question[i].status==='wrong'){
-        //         document.getElementById('nav'+i).style.backgroundColor='#f8d7da'
-        //     }
-            
-        // }
         document.getElementById('ques').innerHTML=question[index].ques;
         for(let j =0;j<4;j++){
             document.getElementById('op'+j).innerHTML=question[index].options[j];
@@ -617,19 +473,6 @@ document.getElementById('prevq').addEventListener('click',function(){
     if(index>0){
         index--;
         document.getElementById('qno').innerHTML="Question "+(index+1)
-        // for(let i=0;i<qlimit;i++){
-        //     if(i==index){
-        //         document.getElementById('nav'+i).style.backgroundColor='#bbe1fa'
-        //     }
-        //     if(question[i].status==='correct'){
-        //         document.getElementById('nav'+i).style.backgroundColor='#d4edda'
-
-        //     }
-        //     if(question[i].status==='wrong'){
-        //         document.getElementById('nav'+i).style.backgroundColor='#f8d7da'
-        //     }
-            
-        // }
 
         document.getElementById('ques').innerHTML=question[index].ques;
         for(let j =0;j<4;j++){
@@ -650,7 +493,6 @@ document.getElementById('prevq').addEventListener('click',function(){
                     document.getElementById('op'+h).style.backgroundColor='#d4edda';
                     document.getElementById('op'+h).innerHTML+='<p style="color: #155724; float:right;">Correct Answer</p>'
 
-                    // document.getElementById('nav'+index).style.backgroundColor='#d4edda';
                     correct++
                     unansw--;
 
@@ -675,7 +517,6 @@ document.getElementById('prevq').addEventListener('click',function(){
                     document.getElementById('op'+h).style.backgroundColor='#f8d7da';
                     document.getElementById('op'+h).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
 
-                    // document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
                     wrong++;
                     unansw--;
 
@@ -711,7 +552,6 @@ document.getElementById('prevq').addEventListener('click',function(){
         document.getElementById('op'+question[index].choose).style.backgroundColor='#f8d7da';
         document.getElementById('op'+question[index].choose).innerHTML+='<p style="color:#721c24; float:right;">Incorrect</p>'
 
-        // document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
 
     }
 
