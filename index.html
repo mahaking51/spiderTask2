@@ -38,6 +38,31 @@
         <h5>Check your scores...</h5>
     </div>
 </div>
+<div class="hover_bkgr_fricc" id='popupHigh'>
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton" id='popupcloseHigh'>&times;</div>
+        <div>
+            <h2>Easy</h2>
+            <table id='easyHighScores'>
+
+            </table>
+        </div>
+        <div>
+            <h2>Moderate</h2>
+            <table id='mediumHighScores'>
+
+            </table>
+        </div>
+        <div>
+            <h2>Hard</h2>
+            <table id='hardHighScores'>
+
+            </table>
+        </div>
+    </div>
+</div>
+
 <section id='userdetails' >
     <div class="container" id='introbox'>
         <img src="gods-creation-5328278_1920.png" alt="" height='175' width='175'>
@@ -81,10 +106,10 @@
             <div id='qs'>
                 <h5 id='ques'>Which of the following statement is/are correct about Favipiravir?</h5>
                 <ul class="list-group" id='options'>
-                    <li class="list-group-item" id='op0'>Cras justo odio</li>
-                    <li class="list-group-item" id='op1'>Dapibus ac facilisis in</li>
-                    <li class="list-group-item" id='op2'>Morbi leo risus</li>
-                    <li class="list-group-item" id='op3'>Porta ac consectetur ac</li>
+                    <li class="list-group-item" id='op0'></li>
+                    <li class="list-group-item" id='op1'></li>
+                    <li class="list-group-item" id='op2'></li>
+                    <li class="list-group-item" id='op3'></li>
                   </ul>
             <button class='btn' id='prevq'> <i class="fas fa-angle-double-left"></i>   Prev</button>
             <button class="btn" id='nextq'>Next   <i class="fas fa-angle-double-right"></i> </button>
@@ -135,7 +160,7 @@
             </tr>
         </table>
     </div>
-    <button class="btn btn-view">View Scores</button>
+    <button class="btn btn-view" id="viewHighScore">View High Scores</button>
     </div>
 </section>
 </body>

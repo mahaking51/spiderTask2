@@ -187,15 +187,26 @@ let marked=0;
 let time=2;
 let sec=0;
 let min=time;
-let remainTime, name, unansw, scoreStore,diff,scoreArr;
+let remainTime, name, unansw, scoreStore,diff,scoreArr,scoreObj;
 if(localStorage.getItem('testpadScores')==null){
-    localStorage.setItem('testpadScores','[]');
+    scoreObj={
+        easy:[],
+        medium:[],
+        hard:[]
+    }
+    store=JSON.stringify(scoreObj);
+    localStorage.setItem('testpadScores',store);
     scoreArr=[];
 }
 else{
-    scoreArr=JSON.parse(localStorage.getItem('testpadScores'));
-    console.log(scoreArr);
+    scoreObj=JSON.parse(localStorage.getItem('testpadScores'));
+    console.log(localStorage.getItem('testpadScores'));
 }
+console.log(scoreObj);
+//sorting scoreArr wrt score
+// scoreArr.sort(function(a, b) {
+//     return a.score - b.score;
+// });
 //randomizing the array
 
 function shuffle(array) {
@@ -227,6 +238,42 @@ function shuffle(array) {
 function fireTimer(){
     myTimer=setInterval(timer,1000);
 }
+//displaying highscores for different difficulties
+function displayHighScores(){
+    document.getElementById('easyHighScores').innerHTML='';
+    document.getElementById('mediumHighScores').innerHTML='';
+    document.getElementById('hardHighScores').innerHTML='';
+    for(let i=0;i<scoreObj.easy.length;i++){
+        // document.getElementById('easyHighScores').innerHTML+='<li>'+scoreObj.easy[i].name+'-'+scoreObj.easy[i].score+'</li>'
+        tableEasy=document.getElementById('easyHighScores');
+        row=tableEasy.insertRow(0);
+        cell1=row.insertCell(0);
+        cell2=row.insertCell(1);
+        cell1.innerHTML='<h2>'+scoreObj.easy[i].name+'</h2>';
+        cell2.innerHTML='<h2>'+scoreObj.easy[i].score+'</h2>';
+    }
+    for(let i=0;i<scoreObj.medium.length;i++){
+        // document.getElementById('mediumHighScores').innerHTML+='<li>'+scoreObj.medium[i].name+'-'+scoreObj.easy[i].score+'</li>';        
+        tableMedium=document.getElementById('mediumHighScores');
+        row=tableMedium.insertRow(0);
+        cell1=row.insertCell(0);
+        cell2=row.insertCell(1);
+        cell1.innerHTML='<h2>'+scoreObj.medium[i].name+'</h2>';
+        cell2.innerHTML='<h2>'+scoreObj.medium[i].score+'</h2>';
+
+    }
+    for(let j=0;j<scoreObj.hard.length;j++){
+        // document.getElementById('hardHighScores').innerHTML+='<li>'+scoreObj.hard[j].name+'-'+scoreObj.hard[j].score+'</li>'
+        tableHard=document.getElementById('hardHighScores');
+        row=tableHard.insertRow(0);
+        cell1=row.insertCell(0);
+        cell2=row.insertCell(1);
+        cell1.innerHTML='<h2>'+scoreObj.hard[i].name+'</h2>';
+        cell2.innerHTML='<h2>'+scoreObj.hard[i].score+'</h2>';
+
+    }
+}
+//display final result scores
 function result(){
     overallScore=calculator(correct,wrong,remainTime,unansw);
     document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
@@ -239,8 +286,37 @@ function result(){
         difficulty:diff,
         score:overallScore
     }
-    scoreArr.push(scoreStore);
-    scoreArr=JSON.stringify(scoreArr)
+    if(diff==='easy'){
+        scoreObj.easy.push(scoreStore);
+        scoreObj.easy.sort(function(a, b) {
+            return a.score - b.score;
+        });
+    }
+    if(diff==='medium'){
+        scoreObj.medium.push(scoreStore);
+        scoreObj.medium.sort(function(a, b) {
+            return a.score - b.score;
+        });
+    }
+    if(diff==='hard'){
+        scoreObj.hard.push(scoreStore);
+        scoreObj.hard.sort(function(a, b) {
+            return a.score - b.score;
+        });
+    }
+    console.log(scoreObj);
+    document.getElementById('viewHighScore').addEventListener('click',function(){
+        document.getElementById('popupHigh').style.display='block';
+        document.getElementById('popupHigh').addEventListener('click',function(){
+        document.getElementById('popupHigh').style.display='none';
+        })
+        document.getElementById('popupcloseHigh').addEventListener('click',function(){
+        document.getElementById('popupHigh').style.display='none';
+        })
+        displayHighScores();
+        })
+    scoreArr=JSON.stringify(scoreObj);
+
     localStorage.setItem('testpadScores',scoreArr);
     clearInterval(myTimer);
 }
@@ -353,6 +429,9 @@ document.getElementById('startbut').addEventListener('click',function(){
         document.getElementById('finalsubmit').addEventListener('click',function(){
             // score page 
             document.getElementById('score').style.display='block';
+            document.getElementById('viewHighScore').addEventListener('click',function(){
+
+            })
             document.getElementById('test').style.display='none';
             document.getElementById('popupScore').style.display='none';
             overallScore=calculator(correct,wrong,remainTime,unansw);
@@ -361,8 +440,36 @@ document.getElementById('startbut').addEventListener('click',function(){
                 difficulty:diff,
                 score:overallScore
             }
-            scoreStore.push(scoreArr);
-            scoreArr=JSON.stringify(scoreArr)
+            if(diff==='easy'){
+                scoreObj.easy.push(scoreStore);
+                scoreObj.easy.sort(function(a, b) {
+                    return a.score - b.score;
+                });
+    
+            }
+            if(diff==='medium'){
+                scoreObj.medium.push(scoreStore);
+                scoreObj.medium.sort(function(a, b) {
+                    return a.score - b.score;
+                });
+            }
+            if(diff==='hard'){
+                scoreObj.hard.push(scoreStore);
+                scoreObj.hard.sort(function(a, b) {
+                    return a.score - b.score;
+                });
+            }
+            document.getElementById('viewHighScore').addEventListener('click',function(){
+            document.getElementById('popupHigh').style.display='block';
+            document.getElementById('popupHigh').addEventListener('click',function(){
+            document.getElementById('popupHigh').style.display='none';
+            })
+            document.getElementById('popupcloseHigh').addEventListener('click',function(){
+            document.getElementById('popupHigh').style.display='none';
+            })
+            displayHighScores();
+            })
+            scoreArr=JSON.stringify(scoreObj)
             localStorage.setItem('testpadScores',scoreArr);
             document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
             document.getElementById('scoreCorrect').innerHTML=correct;
@@ -382,13 +489,41 @@ document.getElementById('startbut').addEventListener('click',function(){
         document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
         document.getElementById('scoreCorrect').innerHTML=correct;
         document.getElementById('scoreWrong').innerHTML=wrong;
-        document.getElementById('scoreTime').innerHTML=remainTime;scoreStore={
+        document.getElementById('scoreTime').innerHTML=remainTime;
+        scoreStore={
             name:name,
             difficulty:diff,
             score:overallScore
         }
-        scoreStore.push(scoreArr);
-        scoreArr=JSON.stringify(scoreArr)
+        if(diff==='easy'){
+            scoreObj.easy.push(scoreStore);
+            scoreObj.easy.sort(function(a, b) {
+                return a.score - b.score;
+            });
+        }
+        if(diff==='medium'){
+            scoreObj.medium.push(scoreStore);
+            scoreObj.medium.sort(function(a, b) {
+                return a.score - b.score;
+            });
+        }
+        if(diff==='hard'){
+            scoreObj.hard.push(scoreStore);
+            scoreObj.hard.sort(function(a, b) {
+                return a.score - b.score;
+            });
+        }
+            document.getElementById('viewHighScore').addEventListener('click',function(){
+            document.getElementById('popupHigh').style.display='block';
+            document.getElementById('popupHigh').addEventListener('click',function(){
+            document.getElementById('popupHigh').style.display='none';
+            })
+            document.getElementById('popupcloseHigh').addEventListener('click',function(){
+            document.getElementById('popupHigh').style.display='none';
+            })
+            displayHighScores();
+            })
+        scoreArr=JSON.stringify(scoreObj)
         localStorage.setItem('testpadScores',scoreArr);
 
         }
