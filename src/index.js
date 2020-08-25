@@ -1,9 +1,9 @@
-// question Set
-//reload prevention
-// window.onbeforeunload = function() {
-//     return "Are you sure you want to leave? ";
-// }
 
+//reload prevention
+window.onbeforeunload = function() {
+    return "Are you sure you want to leave? ";
+}
+// question Set
 let question=[{
             ques:'Which of the following statement is/are correct about Favipiravir?',
             options:['Favipiravir is an antiviral COVID-19 drug.','Glenmark Pharmaceuticals under the brand name FabiFlu has launched an antiviral drug Favipiravir.',"It is India's first COVID-19 drug launched, priced at Rs 103 per tablet.","All the above are correct"],
@@ -202,11 +202,6 @@ else{
     scoreObj=JSON.parse(localStorage.getItem('testpadScores'));
     console.log(localStorage.getItem('testpadScores'));
 }
-console.log(scoreObj);
-//sorting scoreArr wrt score
-// scoreArr.sort(function(a, b) {
-//     return a.score - b.score;
-// });
 //randomizing the array
 
 function shuffle(array) {
@@ -265,7 +260,6 @@ function displayHighScores(){
         len=scoreObj.medium.length;
     }
     for(let i=0;i<len;i++){
-        // document.getElementById('mediumHighScores').innerHTML+='<li>'+scoreObj.medium[i].name+'-'+scoreObj.easy[i].score+'</li>';        
         tableMedium=document.getElementById('mediumHighScores');
         row=tableMedium.insertRow(i);
         cell1=row.insertCell(0);
@@ -281,7 +275,6 @@ function displayHighScores(){
         len=scoreObj.hard.length;
     }
     for(let j=0;j<len;j++){
-        // document.getElementById('hardHighScores').innerHTML+='<li>'+scoreObj.hard[j].name+'-'+scoreObj.hard[j].score+'</li>'
         tableHard=document.getElementById('hardHighScores');
         row=tableHard.insertRow(i);
         cell1=row.insertCell(0);
@@ -979,7 +972,6 @@ document.getElementById('prevq').addEventListener('click',function(){
         document.getElementById('op'+question[index].choose).style.backgroundColor='#f8d7da';
         document.getElementById('nav'+index).style.backgroundColor='#f8d7da';
         document.getElementById('op'+question[index].choose).innerHTML+='<p style="color: #721c24; float:right;">Incorrect</p>'
-
 
     }
 
