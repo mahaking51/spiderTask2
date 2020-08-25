@@ -243,33 +243,51 @@ function displayHighScores(){
     document.getElementById('easyHighScores').innerHTML='';
     document.getElementById('mediumHighScores').innerHTML='';
     document.getElementById('hardHighScores').innerHTML='';
-    for(let i=0;i<scoreObj.easy.length;i++){
+    if(scoreObj.easy.length>3){
+        len=3
+    }
+    else{
+        len=scoreObj.easy.length;
+    }
+    for(let i=0;i<len;i++){
         // document.getElementById('easyHighScores').innerHTML+='<li>'+scoreObj.easy[i].name+'-'+scoreObj.easy[i].score+'</li>'
         tableEasy=document.getElementById('easyHighScores');
-        row=tableEasy.insertRow(0);
+        row=tableEasy.insertRow(i);
         cell1=row.insertCell(0);
         cell2=row.insertCell(1);
-        cell1.innerHTML='<h2>'+scoreObj.easy[i].name+'</h2>';
-        cell2.innerHTML='<h2>'+scoreObj.easy[i].score+'</h2>';
+        cell1.innerHTML='<h4>'+scoreObj.easy[i].name+'</h4>';
+        cell2.innerHTML='<h4>'+scoreObj.easy[i].score+'</h4>';
     }
-    for(let i=0;i<scoreObj.medium.length;i++){
+    if(scoreObj.medium.length>3){
+        len=3
+    }
+    else{
+        len=scoreObj.medium.length;
+    }
+    for(let i=0;i<len;i++){
         // document.getElementById('mediumHighScores').innerHTML+='<li>'+scoreObj.medium[i].name+'-'+scoreObj.easy[i].score+'</li>';        
         tableMedium=document.getElementById('mediumHighScores');
-        row=tableMedium.insertRow(0);
+        row=tableMedium.insertRow(i);
         cell1=row.insertCell(0);
         cell2=row.insertCell(1);
-        cell1.innerHTML='<h2>'+scoreObj.medium[i].name+'</h2>';
-        cell2.innerHTML='<h2>'+scoreObj.medium[i].score+'</h2>';
+        cell1.innerHTML='<h4>'+scoreObj.medium[i].name+'</h4>';
+        cell2.innerHTML='<h4>'+scoreObj.medium[i].score+'</h4>';
 
     }
-    for(let j=0;j<scoreObj.hard.length;j++){
+    if(scoreObj.hard.length>3){
+        len=3
+    }
+    else{
+        len=scoreObj.hard.length;
+    }
+    for(let j=0;j<len;j++){
         // document.getElementById('hardHighScores').innerHTML+='<li>'+scoreObj.hard[j].name+'-'+scoreObj.hard[j].score+'</li>'
         tableHard=document.getElementById('hardHighScores');
-        row=tableHard.insertRow(0);
+        row=tableHard.insertRow(i);
         cell1=row.insertCell(0);
         cell2=row.insertCell(1);
-        cell1.innerHTML='<h2>'+scoreObj.hard[i].name+'</h2>';
-        cell2.innerHTML='<h2>'+scoreObj.hard[i].score+'</h2>';
+        cell1.innerHTML='<h4>'+scoreObj.hard[i].name+'</h4>';
+        cell2.innerHTML='<h4>'+scoreObj.hard[i].score+'</h4>';
 
     }
 }
@@ -289,19 +307,19 @@ function result(){
     if(diff==='easy'){
         scoreObj.easy.push(scoreStore);
         scoreObj.easy.sort(function(a, b) {
-            return a.score - b.score;
+            return b.score - a.score;
         });
     }
     if(diff==='medium'){
         scoreObj.medium.push(scoreStore);
         scoreObj.medium.sort(function(a, b) {
-            return a.score - b.score;
+            return b.score - a.score;
         });
     }
     if(diff==='hard'){
         scoreObj.hard.push(scoreStore);
         scoreObj.hard.sort(function(a, b) {
-            return a.score - b.score;
+            return b.score - a.score;
         });
     }
     console.log(scoreObj);
@@ -428,10 +446,8 @@ document.getElementById('startbut').addEventListener('click',function(){
         document.getElementById('popupScore').style.display='block';
         document.getElementById('finalsubmit').addEventListener('click',function(){
             // score page 
+            clearInterval(myTimer);
             document.getElementById('score').style.display='block';
-            document.getElementById('viewHighScore').addEventListener('click',function(){
-
-            })
             document.getElementById('test').style.display='none';
             document.getElementById('popupScore').style.display='none';
             overallScore=calculator(correct,wrong,remainTime,unansw);
@@ -443,20 +459,20 @@ document.getElementById('startbut').addEventListener('click',function(){
             if(diff==='easy'){
                 scoreObj.easy.push(scoreStore);
                 scoreObj.easy.sort(function(a, b) {
-                    return a.score - b.score;
+                    return b.score - a.score;
                 });
     
             }
             if(diff==='medium'){
                 scoreObj.medium.push(scoreStore);
                 scoreObj.medium.sort(function(a, b) {
-                    return a.score - b.score;
+                    return b.score - a.score;
                 });
             }
             if(diff==='hard'){
                 scoreObj.hard.push(scoreStore);
                 scoreObj.hard.sort(function(a, b) {
-                    return a.score - b.score;
+                    return b.score - a.score;
                 });
             }
             document.getElementById('viewHighScore').addEventListener('click',function(){
@@ -498,19 +514,19 @@ document.getElementById('startbut').addEventListener('click',function(){
         if(diff==='easy'){
             scoreObj.easy.push(scoreStore);
             scoreObj.easy.sort(function(a, b) {
-                return a.score - b.score;
+                return b.score - a.score;
             });
         }
         if(diff==='medium'){
             scoreObj.medium.push(scoreStore);
             scoreObj.medium.sort(function(a, b) {
-                return a.score - b.score;
+                return b.score - a.score;
             });
         }
         if(diff==='hard'){
             scoreObj.hard.push(scoreStore);
             scoreObj.hard.sort(function(a, b) {
-                return a.score - b.score;
+                return b.score - a.score;
             });
         }
             document.getElementById('viewHighScore').addEventListener('click',function(){
