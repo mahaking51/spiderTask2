@@ -188,6 +188,7 @@ let time=2;
 let sec=0;
 let min=time;
 let remainTime, name, unansw, scoreStore,diff,scoreArr,scoreObj;
+let userHighScore=null;
 if(localStorage.getItem('testpadScores')==null){
     scoreObj={
         easy:[],
@@ -232,6 +233,28 @@ function shuffle(array) {
 // timer
 function fireTimer(){
     myTimer=setInterval(timer,1000);
+}
+//finding user's recent highscore
+function recentHigh(){
+    if(diff==='easy'){
+        n=scoreObj.easy.length;
+        arr=scoreObj.easy
+    }
+    if(diff==='medium'){
+        n=scoreObj.medium.length;
+        arr=scoreObj.medium;
+    }
+    if(diff==='hard'){
+        n=scoreObj.hard.length;
+        arr=scoreObj.hard
+    }
+    for(var i=0;i<n;i++){
+        if(arr[i].name==name){
+            userHighScore=arr[i].score;
+            break;
+        }
+    }
+    console.log(userHighScore,arr);
 }
 //displaying highscores for different difficulties
 function displayHighScores(){
@@ -327,7 +350,13 @@ function result(){
         displayHighScores();
         })
     scoreArr=JSON.stringify(scoreObj);
-
+    recentHigh();
+    if(overallScore==userHighScore){
+        document.getElementById('userHighScore').innerHTML='This is Your New HighScore!!!';
+    }
+    else{
+        document.getElementById('userHighScore').innerHTML='Your recent highscore:'+userHighScore;
+    }
     localStorage.setItem('testpadScores',scoreArr);
     clearInterval(myTimer);
 }
@@ -480,7 +509,15 @@ document.getElementById('startbut').addEventListener('click',function(){
             })
             scoreArr=JSON.stringify(scoreObj)
             localStorage.setItem('testpadScores',scoreArr);
+            recentHigh();
+
             document.getElementById('scorePercent').innerHTML='Hey '+name+' !,you have scored '+overallScore;
+            if(userHighScore==overallScore){
+                document.getElementById('userHighScore').innerHTML='This is Your New HighScore!!!'
+            }
+            else{
+                document.getElementById('userHighScore').innerHTML='Your recent highscore:'+userHighScore;
+            }
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scoreWrong').innerHTML=wrong;
             document.getElementById('scoreTime').innerHTML=remainTime;
@@ -532,6 +569,15 @@ document.getElementById('startbut').addEventListener('click',function(){
             })
             displayHighScores();
             })
+            recentHigh();
+            if(overallScore==userHighScore){
+                document.getElementById('userHighScore').innerHTML='This is Your New HighScore!!!';
+            }
+            else{
+                document.getElementById('userHighScore').innerHTML='Your recent highscore:'+userHighScore;
+
+            }
+
         scoreArr=JSON.stringify(scoreObj)
         localStorage.setItem('testpadScores',scoreArr);
 

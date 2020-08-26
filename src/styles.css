@@ -303,6 +303,14 @@ h5{
 margin:auto;
 
 }
-#scorePercent{
-  font-size:2rem;
+#userHighScore{
+  text-align:center;
+}
+@media only screen and (max-width: 1200px) {
+  #navbar{
+    margin-right:2.25rem;
+  }
+  #question{
+    margin-left:2.25rem
+  }
 }
