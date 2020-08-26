@@ -35,8 +35,6 @@ html {
       margin:0
   }
   
-
-
   .btn {
     display: inline-block;
     font-weight: 400;
@@ -299,4 +297,12 @@ h5{
 }
 #viewscore{
   margin-top:4rem
+}
+@media only screen and (min-width: 768px) {
+  #navbar{
+    margin-right:2rem;
+  }
+  #question{
+    margin-left:2rem
+  }
 }
