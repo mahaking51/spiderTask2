@@ -78,8 +78,6 @@ let question=[{
             ans:3,
             status:"un",
             choose:-1
-
-
         },
         {
             ques:"What is Coronavirus?",
@@ -243,6 +241,12 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('popupScore').style.display='none';
             totalPercent=calcScore(correct,wrong,qlimit);
             document.getElementById('scorePercent').innerHTML="Hey "+name+" ! ,you have scored "+totalPercent+"%";
+            if(totalPercent<50){
+                document.getElementById('reaction').src='src/e4135406951feb9b6bd685ef019e8d06.png';
+            }
+            else{
+                document.getElementById('reaction').src='src/c65e52807e277f3865e2e76776ca9e8e.jpg';
+            }
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scorewrong').innerHTML=wrong;
             console.log('finalsumbmit');
@@ -256,6 +260,12 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('test').style.display='none';
             totalPercent=calcScore(correct,wrong,qlimit);
             document.getElementById('scorePercent').innerHTML="Hey "+name+" ! ,you have scored "+totalPercent+"%";
+            if(totalPercent<50){
+                document.getElementById('reaction').src='src/e4135406951feb9b6bd685ef019e8d06.png';
+            }
+            else{
+                document.getElementById('reaction').src='src/c65e52807e277f3865e2e76776ca9e8e.jpg';
+            }
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scorewrong').innerHTML=wrong;
         }
