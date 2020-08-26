@@ -311,6 +311,12 @@ function displayHighScores(){
 function result(){
     overallScore=calculator(correct,wrong,remainTime,unansw);
     document.getElementById('scorePercent').innerHTML='Hey '+name+' !, you have scored '+overallScore;
+    if(overallScore<5){
+        document.getElementById('reaction').src='public/e4135406951feb9b6bd685ef019e8d06.png'
+    }
+    else{
+        document.getElementById('reaction').src='public/c65e52807e277f3865e2e76776ca9e8e.jpg'
+    }
     document.getElementById('scoreCorrect').innerHTML=correct;
     document.getElementById('scoreWrong').innerHTML=wrong;
     document.getElementById('scoreTime').innerHTML=remainTime;
@@ -512,6 +518,12 @@ document.getElementById('startbut').addEventListener('click',function(){
             recentHigh();
 
             document.getElementById('scorePercent').innerHTML='Hey '+name+' !,you have scored '+overallScore;
+            if(overallScore<5){
+                document.getElementById('reaction').src='public/e4135406951feb9b6bd685ef019e8d06.png'
+            }
+            else{
+                document.getElementById('reaction').src='public/c65e52807e277f3865e2e76776ca9e8e.jpg'
+            }
             if(userHighScore==overallScore){
                 document.getElementById('userHighScore').innerHTML='This is Your New HighScore!!!'
             }
@@ -533,6 +545,12 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('test').style.display='none';
             overallScore=calculator(correct,wrong,remainTime,unansw);
         document.getElementById('scorePercent').innerHTML='Hey '+name+' !,you have scored '+overallScore;
+        if(overallScore<5){
+            document.getElementById('reaction').src='public/e4135406951feb9b6bd685ef019e8d06.png'
+        }
+        else{
+            document.getElementById('reaction').src='public/c65e52807e277f3865e2e76776ca9e8e.jpg'
+        }
         document.getElementById('scoreCorrect').innerHTML=correct;
         document.getElementById('scoreWrong').innerHTML=wrong;
         document.getElementById('scoreTime').innerHTML=remainTime;
