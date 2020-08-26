@@ -287,7 +287,7 @@ function displayHighScores(){
 //display final result scores
 function result(){
     overallScore=calculator(correct,wrong,remainTime,unansw);
-    document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
+    document.getElementById('scorePercent').innerHTML='Hey '+name+' !, you have scored '+overallScore;
     document.getElementById('scoreCorrect').innerHTML=correct;
     document.getElementById('scoreWrong').innerHTML=wrong;
     document.getElementById('scoreTime').innerHTML=remainTime;
@@ -480,7 +480,7 @@ document.getElementById('startbut').addEventListener('click',function(){
             })
             scoreArr=JSON.stringify(scoreObj)
             localStorage.setItem('testpadScores',scoreArr);
-            document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
+            document.getElementById('scorePercent').innerHTML='Hey '+name+' !,you have scored '+overallScore;
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scoreWrong').innerHTML=wrong;
             document.getElementById('scoreTime').innerHTML=remainTime;
@@ -495,7 +495,7 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
             overallScore=calculator(correct,wrong,remainTime,unansw);
-        document.getElementById('scorePercent').innerHTML='You have scored '+overallScore;
+        document.getElementById('scorePercent').innerHTML='Hey '+name+' !,you have scored '+overallScore;
         document.getElementById('scoreCorrect').innerHTML=correct;
         document.getElementById('scoreWrong').innerHTML=wrong;
         document.getElementById('scoreTime').innerHTML=remainTime;
