@@ -274,7 +274,7 @@ function displayHighScores(){
     else{
         len=scoreObj.hard.length;
     }
-    for(let j=0;j<len;j++){
+    for(let i=0;i<len;i++){
         tableHard=document.getElementById('hardHighScores');
         row=tableHard.insertRow(i);
         cell1=row.insertCell(0);
