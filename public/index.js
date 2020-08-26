@@ -185,7 +185,7 @@ let correct=0;
 let wrong=0;
 let unansw;
 let marked=0;
-
+let name;
 //basic mode
 function calcScore(correct,wrong,totalQues){
 total=totalQues*3;
@@ -196,6 +196,7 @@ return percent*100;
 document.getElementById('submitbut').addEventListener('click',function(e){
 e.preventDefault();
 if(document.getElementById('name').value!=''){
+    name=document.getElementById('name').value;
     document.getElementById('userdetails').style.display='none'
     document.getElementById('instruction').style.display='block';
     level=document.getElementById('difficulty').value;
@@ -241,7 +242,7 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('test').style.display='none';
             document.getElementById('popupScore').style.display='none';
             totalPercent=calcScore(correct,wrong,qlimit);
-            document.getElementById('scorePercent').innerHTML="You have scored "+totalPercent+"%";
+            document.getElementById('scorePercent').innerHTML="Hey "+name+" ! ,you have scored "+totalPercent+"%";
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scorewrong').innerHTML=wrong;
             console.log('finalsumbmit');
@@ -254,7 +255,7 @@ document.getElementById('startbut').addEventListener('click',function(){
             document.getElementById('score').style.display='block';
             document.getElementById('test').style.display='none';
             totalPercent=calcScore(correct,wrong,qlimit);
-            document.getElementById('scorePercent').innerHTML="You have scored "+totalPercent+"%";
+            document.getElementById('scorePercent').innerHTML="Hey "+name+" ! ,you have scored "+totalPercent+"%";
             document.getElementById('scoreCorrect').innerHTML=correct;
             document.getElementById('scorewrong').innerHTML=wrong;
         }
